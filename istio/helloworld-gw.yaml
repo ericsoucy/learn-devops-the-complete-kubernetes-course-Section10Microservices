@@ -28,6 +28,6 @@ spec:
         prefix: /hello
     route:
     - destination:
-        host: hello.default.svc.cluster.local
+        host: hello
         port:
           number: 8080

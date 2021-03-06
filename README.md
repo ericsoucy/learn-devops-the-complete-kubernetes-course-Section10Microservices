@@ -43,6 +43,13 @@ docker run  -e TEXT=hello -p 8080:8080 ericsoucy/http-echo
 docker push ericsoucy/http-echo
 ```
 
+### Ch 122 Demo: An Istio enabled app
+
 ```bash
 wget https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld.yaml
+
+kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld.yaml -n istio-tests) -n istio-tests
+kubectl get pods -n istio-tests
+
+kubectl apply -f https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld-gw.yaml -n istio-tests
 ```
