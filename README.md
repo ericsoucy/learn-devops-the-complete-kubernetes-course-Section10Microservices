@@ -52,4 +52,6 @@ kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld.yaml -n 
 kubectl get pods -n istio-tests
 
 kubectl apply -f https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld-gw.yaml -n istio-tests
+
+curl -vvvv http://kubernetes.docker.internal/hello
 ```
