@@ -35,10 +35,14 @@ kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.por
 //30498
 
 curl -vvvv http://kubernetes.docker.internal/productpage
+kubectl delete -f samples/bookinfo/platform/kube/bookinfo.yaml -n istio-tests
 
 //build http-echo
 docker build -t ericsoucy/http-echo .
 docker run  -e TEXT=hello -p 8080:8080 ericsoucy/http-echo
-
+docker push ericsoucy/http-echo
 ```
 
+```bash
+wget https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld.yaml
+```
