@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: hello
@@ -14,16 +14,16 @@ spec:
         version: v1
     spec:
       containers:
-      - name: hello
-        image: wardviaene/http-echo
-        env:
-        - name: TEXT
-          value: hello
-        - name: NEXT
-          value: "world:8080"
-        ports:
-        - name: http
-          containerPort: 8080
+        - name: hello
+          image: ericsoucy/http-echo
+          env:
+            - name: TEXT
+              value: hello
+            - name: NEXT
+              value: 'world:8080'
+          ports:
+            - name: http
+              containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -35,9 +35,9 @@ spec:
   selector:
     app: hello
   ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
+    - name: http
+      port: 8080
+      targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -55,16 +55,16 @@ spec:
         version: v1
     spec:
       containers:
-      - name: world
-        image: wardviaene/http-echo
-        env:
-        - name: TEXT
-          value: world
-        - name: NEXT
-          value: "world-2:8080"
-        ports:
-        - name: http
-          containerPort: 8080
+        - name: world
+          image: wardviaene/http-echo
+          env:
+            - name: TEXT
+              value: world
+            - name: NEXT
+              value: 'world-2:8080'
+          ports:
+            - name: http
+              containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -76,9 +76,9 @@ spec:
   selector:
     app: world
   ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
+    - name: http
+      port: 8080
+      targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -96,14 +96,14 @@ spec:
         version: v1
     spec:
       containers:
-      - name: world-2
-        image: wardviaene/http-echo
-        env:
-        - name: TEXT
-          value: "!!!" 
-        ports:
-        - name: http
-          containerPort: 8080
+        - name: world-2
+          image: wardviaene/http-echo
+          env:
+            - name: TEXT
+              value: '!!!'
+          ports:
+            - name: http
+              containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -115,7 +115,8 @@ spec:
   selector:
     app: world-2
   ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
+    - name: http
+      port: 8080
+      targetPort: 8080
 ---
+
