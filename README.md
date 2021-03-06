@@ -61,9 +61,15 @@ curl -vvvv http://kubernetes.docker.internal/hello
 ![istio](istio-hello-world-v2.png)
 
 ```bash
-wget https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld.yaml
+wget https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld-v2.yaml
 
-kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld.yaml -n istio-tests) -n istio-tests
+kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld-v2.yaml -n istio-tests) -n istio-tests
 kubectl get pods -n istio-tests
+
+kubectl apply -f helloworld-v2-routing.yaml -n istio-tests
+
+curl -vvvv  -H "host: hello.example.com" http://kubernetes.docker.internal/hello
+
+curl -vvvv  -H "host: hello.example.com" -H "end-user: john" http://kubernetes.docker.internal/hello
 
 ```
