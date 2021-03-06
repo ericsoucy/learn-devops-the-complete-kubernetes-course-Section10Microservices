@@ -3,7 +3,7 @@ kind: DestinationRule
 metadata:
   name: hello
 spec:
-  host: hello.default.svc.cluster.local
+  host: hello
   subsets:
   - name: v1
     labels:
@@ -28,13 +28,13 @@ spec:
           exact: john
     route:
     - destination:
-        host: hello.default.svc.cluster.local
+        host: hello
         subset: v2 # match v2 only
         port:
           number: 8080
   - route: # default route for hello.example.com
     - destination:
-        host: hello.default.svc.cluster.local
+        host: hello
         subset: v1 # match v1 only
         port:
           number: 8080

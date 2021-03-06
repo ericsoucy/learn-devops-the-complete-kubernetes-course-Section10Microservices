@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-v2
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: hello
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: TEXT
           value: hello, this is v2
