@@ -85,3 +85,20 @@ kubectl describe virtualservice helloworld -n istio-tests
 
 for ((i=1;i<=10;i++)); do curl -H "host: hello.example.com" http://kubernetes.docker.internal/hello; done
 ```
+
+### ch 125. Demo: Retries
+
+![retries](./retries.png)
+
+```bash
+kubectl apply -f helloworld-v3.yaml -n istio-tests
+
+curl -vvvv  -H "host: hello-v3.example.com" http://kubernetes.docker.internal/hello
+
+for ((i=1;i<=10;i++)); do time curl -H "host: hello-v3.example.com" http://kubernetes.docker.internal/hello; done
+
+
+// comment retries
+kubectl apply -f helloworld-v3.yaml -n istio-tests
+
+```

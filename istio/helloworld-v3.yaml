@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: MY_POD_NAME
           valueFrom:
@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: MY_POD_NAME
           valueFrom:
@@ -63,7 +63,7 @@ kind: DestinationRule
 metadata:
   name: hello
 spec:
-  host: hello.default.svc.cluster.local
+  host: hello
   subsets:
   - name: v1
     labels:
@@ -87,11 +87,11 @@ spec:
   http:
   - route: # default route for hello.example.com
     - destination:
-        host: hello.default.svc.cluster.local
+        host: hello
         subset: v3 # match v3 only
         port:
           number: 8080
     timeout: 10s
-    retries:
-      attempts: 2
-      perTryTimeout: 2s
+    #retries:
+    #  attempts: 2
+    #  perTryTimeout: 2s
