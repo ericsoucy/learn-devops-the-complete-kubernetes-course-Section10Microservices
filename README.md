@@ -73,3 +73,15 @@ curl -vvvv  -H "host: hello.example.com" http://kubernetes.docker.internal/hello
 curl -vvvv  -H "host: hello.example.com" -H "end-user: john" http://kubernetes.docker.internal/hello
 
 ```
+
+### ch 124. Demo: Canary Deployments
+
+![canary](canary.png)
+
+```bash
+kubectl apply -f helloworld-v2-canary.yaml -n istio-tests
+
+kubectl describe virtualservice helloworld -n istio-tests
+
+for ((i=1;i<=10;i++)); do curl -H "host: hello.example.com" http://kubernetes.docker.internal/hello; done
+```
