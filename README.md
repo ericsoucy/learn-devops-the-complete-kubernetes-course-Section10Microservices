@@ -118,6 +118,13 @@ kubectl apply -f helloworld-v3.yaml -n istio-tests
 ![demo](./demo-tls.png)
 
 ```bash
+wget https://raw.githubusercontent.com/ericsoucy/learn-devops-the-complete-kubernetes-course-Section10Microservices/main/istio/helloworld-tls.yaml
+
+
 kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld-tls.yaml)
 kubectl apply -f helloworld-tls-legacy.yaml
+
+kubectl get svc -o wide -n istio-system
+
+curl -vvvv  -H "host: hello-tls.example.com" http://kubernetes.docker.internal/
 ```
