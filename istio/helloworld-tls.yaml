@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: TEXT
           value: hello
@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: TEXT
           value: world
@@ -82,7 +82,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: TEXT
           value: world
@@ -110,7 +110,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: wardviaene/http-echo
+        image: ericsoucy/http-echo
         env:
         - name: TEXT
           value: "!!!"

@@ -102,3 +102,22 @@ for ((i=1;i<=10;i++)); do time curl -H "host: hello-v3.example.com" http://kuber
 kubectl apply -f helloworld-v3.yaml -n istio-tests
 
 ```
+
+### ch 126. Mutual TLS
+
+<https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication>
+
+![security](https://istio.io/latest/docs/concepts/security/arch-sec.svg)
+
+![security](https://istio.io/latest/docs/concepts/security/id-prov.svg)
+
+![auth](https://istio.io/latest/docs/concepts/security/authn.svg)
+
+![mutual-tls](./mutual-tls.png)
+
+![demo](./demo-tls.png)
+
+```bash
+kubectl apply -f helloworld-tls.yaml
+kubectl apply -f helloworld-tls-legacy.yaml
+```
