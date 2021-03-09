@@ -198,7 +198,7 @@ kind: DestinationRule
 metadata:
   name: hello
 spec:
-  host: hello.ns1.svc.cluster.local
+  host: hello
   # uncomment to enable mutual TLS
   trafficPolicy:
     tls:
@@ -213,7 +213,7 @@ kind: DestinationRule
 metadata:
   name: hello-reverse
 spec:
-  host: hello-reverse.legacy.svc.cluster.local
+  host: hello-reverse
   # uncomment to enable mutual TLS
   trafficPolicy:
     tls:
@@ -235,7 +235,7 @@ spec:
   http:
   - route: 
     - destination:
-        host: hello.ns1.svc.cluster.local
+        host: hello
         subset: v1-tls # match v3 only
         port:
           number: 8080
@@ -252,7 +252,7 @@ spec:
   http:
   - route: 
     - destination:
-        host: hello-reverse.legacy.svc.cluster.local
+        host: hello-reverse
         subset: v1-tls 
         port:
           number: 8080
