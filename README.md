@@ -118,6 +118,6 @@ kubectl apply -f helloworld-v3.yaml -n istio-tests
 ![demo](./demo-tls.png)
 
 ```bash
-kubectl apply -f helloworld-tls.yaml
+kubectl apply -f <(./istio-1.9.1/bin/istioctl kube-inject -f helloworld-tls.yaml)
 kubectl apply -f helloworld-tls-legacy.yaml
 ```
