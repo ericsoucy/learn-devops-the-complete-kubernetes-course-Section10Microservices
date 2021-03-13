@@ -136,3 +136,16 @@ curl -vvvv  -H "host: hello-tls.example.com" http://kubernetes.docker.internal/
 SEE:
 <https://istio.io/latest/docs/tasks/security/authentication/authn-policy/>
 <https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>
+
+### 128. RBAC with Istio && 129. Demo: RBAC with Istio
+
+RBAC (deprecated)
+<https://istio.io/v1.4/docs/reference/config/security/istio.rbac.v1alpha1/>
+
+v1beta1 Authorization policy
+<https://istio.io/latest/docs/concepts/security/#authorization-policies>
+<https://istio.io/latest/docs/tasks/security/authorization/authz-http/>
+
+### 130  End-user authentication with istio (JWT) && 131. Demo: End-user authentication with istio (JWT)
+
+<https://istio.io/latest/docs/tasks/security/authentication/authn-policy/#end-user-authentication>
