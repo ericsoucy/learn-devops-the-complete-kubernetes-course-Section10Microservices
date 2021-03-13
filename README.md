@@ -150,3 +150,18 @@ v1beta1 Authorization policy
 
 <https://istio.io/latest/docs/tasks/security/authentication/authn-policy/#end-user-authentication>
 
+### 132 Demo: Istio Egress traffic
+
+<https://istio.io/latest/docs/tasks/traffic-management/egress/egress-control/>
+<https://istio.io/docs/tasks/traffic-management/egress/egress-control/>
+
+```bash
+kubectl apply -f <(istioctl kube-inject -f ./istio/helloworld.yaml)
+kubectl exec -it hello-8c7bddb77-5qdjr -- sh
+   wget world-2:8080
+   cat index.html
+   wget ifconfig.co
+   To enable  restriction
+
+kubectl get configmap istio -n istio-system -o yaml | sed 's/mode: ALLOW_ANY/mode: REGISTRY_ONLY/g' | kubectl replace -n istio-system -f -
+```
