@@ -180,3 +180,13 @@ http://localhost:16686
 ![trace](./jaeger-trace.png)
 ![trace](./Jaeger%20UI-graph.png)
 
+### 134. Istio's Grafana Metrics
+
+<https://istio.io/latest/docs/tasks/observability/metrics/using-istio-dashboard/>
+
+```bash
+ kubectl apply -f istio-1.9.1/samples/addons/grafana.yaml
+ kubectl apply -f istio-1.9.1/samples/addons/prometheus.yaml
+ istioctl dashboard grafana
+
+```
