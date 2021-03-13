@@ -126,5 +126,13 @@ kubectl apply -f helloworld-tls-legacy.yaml
 
 kubectl get svc -o wide -n istio-system
 
+//debug
+kubectl get destinationrules.networking.istio.io --all-namespaces
+kubectl get virtualservices.networking.istio.io --all-namespaces 
+
 curl -vvvv  -H "host: hello-tls.example.com" http://kubernetes.docker.internal/
 ```
+
+SEE:
+<https://istio.io/latest/docs/tasks/security/authentication/authn-policy/>
+<https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>
