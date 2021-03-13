@@ -165,3 +165,18 @@ kubectl exec -it hello-8c7bddb77-5qdjr -- sh
 
 kubectl get configmap istio -n istio-system -o yaml | sed 's/mode: ALLOW_ANY/mode: REGISTRY_ONLY/g' | kubectl replace -n istio-system -f -
 ```
+
+### 133. Demo: Distributed Tracing with Jaeger
+
+<https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/>
+
+```bash
+kubectl apply -f istio-1.9.1/samples/addons/jaeger.yaml
+istioctl dashboard jaeger
+http://localhost:16686
+// generate some traffic
+```
+
+![trace](./jaeger-trace.png)
+![trace](./Jaeger%20UI-graph.png)
+
